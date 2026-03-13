@@ -61,7 +61,7 @@ export default function HomePage() {
 
       <main className="flex-1">
         {/* ── 1. Hero Section ── */}
-        <section className="relative w-full h-[600px] overflow-hidden flex items-center justify-center">
+        <section className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden flex items-center justify-center">
           <img
             src="https://images.unsplash.com/photo-1759031755373-7567f0f30b26?w=1080"
             alt="Arreglos florales Florería Kattya"
@@ -72,15 +72,15 @@ export default function HomePage() {
 
           {/* Centered content */}
           <div className="relative z-10 flex flex-col items-center gap-6">
-            <h1 className="font-display italic text-[64px] text-white text-center max-w-[900px] leading-tight">
+            <h1 className="font-display italic text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] text-white text-center max-w-[90%] md:max-w-[700px] lg:max-w-[900px] leading-tight">
               No vendemos flores, sino arte
             </h1>
-            <p className="font-body text-[20px] text-white/80 text-center max-w-[700px]">
+            <p className="font-body text-[16px] md:text-[20px] text-white/80 text-center max-w-[90%] md:max-w-[700px]">
               Desde 1973 creando arreglos florales únicos en Saltillo
             </p>
             <Link
               href="/catalogo"
-              className="font-body flex items-center gap-8 bg-[var(--primary)] text-white text-base font-medium px-10 py-4 rounded-sm"
+              className="font-body flex items-center gap-8 bg-[var(--primary)] text-white text-base font-medium px-6 py-3 md:px-10 md:py-4 rounded-sm"
             >
               Ver Catálogo →
             </Link>
@@ -88,8 +88,8 @@ export default function HomePage() {
         </section>
 
         {/* ── 2. Intro Section ── */}
-        <section className="bg-[var(--bg-cream)] px-[200px] py-16 flex flex-col items-center gap-4">
-          <h2 className="font-display italic text-[36px] text-[var(--text-primary)] text-center">
+        <section className="bg-[var(--bg-cream)] px-6 md:px-16 lg:px-[120px] xl:px-[200px] py-10 md:py-16 flex flex-col items-center gap-4">
+          <h2 className="font-display italic text-[28px] md:text-[36px] text-[var(--text-primary)] text-center">
             Tradición Floral desde 1973
           </h2>
           <div className="w-[60px] h-[2px] bg-[var(--primary)]" />
@@ -101,14 +101,14 @@ export default function HomePage() {
         </section>
 
         {/* ── 3. Featured Categories ── */}
-        <section className="bg-[var(--bg-white)] px-14 py-16 flex flex-col items-center gap-10">
+        <section className="bg-[var(--bg-white)] px-4 md:px-8 xl:px-14 py-16 flex flex-col items-center gap-10">
           <h2 className="font-display italic text-[36px] text-[var(--text-primary)] text-center">
             Nuestras Especialidades
           </h2>
-          <div className="grid grid-cols-4 gap-6 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full">
             {CATEGORIES.map((card) => (
               <div key={card.title} className="rounded-sm overflow-hidden">
-                <div className="h-[280px] overflow-hidden rounded-t-sm">
+                <div className="h-[200px] md:h-[240px] lg:h-[280px] overflow-hidden rounded-t-sm">
                   <img
                     src={card.image}
                     alt={card.title}
@@ -129,11 +129,11 @@ export default function HomePage() {
         </section>
 
         {/* ── 4. How It Works ── */}
-        <section className="bg-[var(--bg-soft-pink)] px-14 py-16 flex flex-col items-center gap-10">
-          <h2 className="font-display italic text-[36px] text-[var(--text-primary)] text-center">
+        <section className="bg-[var(--bg-soft-pink)] px-4 md:px-8 xl:px-14 py-16 flex flex-col items-center gap-10">
+          <h2 className="font-display italic text-[28px] md:text-[36px] text-[var(--text-primary)] text-center">
             ¿Cómo Ordenar?
           </h2>
-          <div className="grid grid-cols-5 gap-6 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 w-full">
             {STEPS.map((step) => {
               const Icon = step.icon;
               return (
@@ -157,15 +157,14 @@ export default function HomePage() {
         </section>
 
         {/* ── 5. Testimonial / Quote ── */}
-        <section className="bg-[var(--bg-dark)] px-[120px] py-20 flex flex-col items-center gap-6">
+        <section className="bg-[var(--bg-dark)] px-6 md:px-16 lg:px-[120px] py-12 md:py-20 flex flex-col items-center gap-6">
           <span
-            className="font-display italic text-[120px] text-[var(--primary)] select-none"
-            style={{ lineHeight: 0.5 }}
+            className="font-display italic text-[60px] md:text-[90px] lg:text-[120px] text-[var(--primary)] select-none leading-[0.5]"
             aria-hidden="true"
           >
             &ldquo;
           </span>
-          <blockquote className="font-display italic text-[32px] text-white text-center max-w-[800px] leading-[1.4]">
+          <blockquote className="font-display italic text-[22px] md:text-[28px] lg:text-[32px] text-white text-center max-w-[95%] md:max-w-[800px] leading-[1.4]">
             Cada arreglo tiene historia, forma, estilo y dedicación
           </blockquote>
           <div className="w-[60px] h-[2px] bg-[var(--primary)]" />

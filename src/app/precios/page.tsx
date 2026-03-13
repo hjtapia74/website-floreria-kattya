@@ -39,236 +39,129 @@ const PRICING_ROWS: PricingRow[] = [
 
 export default function PreciosPage() {
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <div className="min-h-screen flex flex-col">
       <Header activePage="/precios" />
 
-      <main style={{ flex: 1 }}>
+      <main className="flex-1">
 
         {/* ── 1. Page Title ─────────────────────────────────────────── */}
-        <section
-          style={{
-            backgroundColor: "var(--bg-cream)",
-            padding: "64px 56px",
-          }}
-          className="flex flex-col items-center"
-        >
-          <h1
-            className="font-display"
-            style={{
-              fontSize: "48px",
-              fontStyle: "italic",
-              fontWeight: 700,
-              color: "var(--text-primary)",
-              textAlign: "center",
-              margin: 0,
-            }}
-          >
+        <section className="bg-[var(--bg-cream)] px-6 md:px-14 py-10 md:py-16 flex flex-col items-center gap-4">
+          <h1 className="font-display italic font-bold text-[32px] md:text-[40px] lg:text-[48px] text-[var(--text-primary)] text-center m-0">
             Nuestros Precios
           </h1>
 
           <div
-            style={{
-              width: "60px",
-              height: "2px",
-              backgroundColor: "var(--primary)",
-              marginTop: "16px",
-            }}
+            className="w-[60px] h-[2px] bg-[var(--primary)] mt-4"
             aria-hidden="true"
           />
 
-          <p
-            className="font-body"
-            style={{
-              fontSize: "18px",
-              color: "var(--text-secondary)",
-              textAlign: "center",
-              margin: "16px 0 0",
-            }}
-          >
+          <p className="font-body text-[16px] md:text-[18px] text-[var(--text-secondary)] text-center m-0">
             Transparencia y calidad en cada arreglo
           </p>
         </section>
 
         {/* ── 2. Pricing Table ──────────────────────────────────────── */}
-        <section
-          style={{
-            backgroundColor: "var(--bg-white)",
-            padding: "48px 56px",
-          }}
-        >
-          <div
-            role="table"
-            aria-label="Lista de precios"
-            style={{ width: "100%" }}
-          >
-            {/* Header row */}
+        <section className="bg-[var(--bg-white)] px-4 md:px-10 lg:px-14 py-8 md:py-12">
+          <div className="overflow-x-auto">
             <div
-              role="row"
-              className="flex font-body"
-              style={{
-                backgroundColor: "var(--bg-dark)",
-                padding: "16px 24px",
-              }}
+              role="table"
+              aria-label="Lista de precios"
+              className="w-full min-w-[500px]"
             >
-              <span
-                role="columnheader"
-                style={{
-                  flex: 1,
-                  fontSize: "13px",
-                  fontWeight: 600,
-                  color: "#FFFFFF",
-                }}
+              {/* Header row */}
+              <div
+                role="row"
+                className="flex font-body bg-[var(--bg-dark)] px-4 md:px-6 py-4"
               >
-                Producto
-              </span>
-              <span
-                role="columnheader"
-                style={{
-                  flex: 1,
-                  fontSize: "13px",
-                  fontWeight: 600,
-                  color: "#FFFFFF",
-                }}
-              >
-                Tamaño
-              </span>
-              <span
-                role="columnheader"
-                style={{
-                  flex: 1,
-                  fontSize: "13px",
-                  fontWeight: 600,
-                  color: "#FFFFFF",
-                  textAlign: "right",
-                }}
-              >
-                Precio (MXN)
-              </span>
-            </div>
-
-            {/* Data rows */}
-            {PRICING_ROWS.map((row, index) => {
-              const isCreamRow = index % 2 !== 0;
-              return (
-                <div
-                  key={`${row.product}-${row.size}`}
-                  role="row"
-                  className="flex font-body"
-                  style={{
-                    backgroundColor: isCreamRow
-                      ? "var(--bg-cream)"
-                      : "var(--bg-white)",
-                    padding: "14px 24px",
-                    borderBottom: row.isLastRow
-                      ? "none"
-                      : "1px solid var(--border)",
-                    alignItems: "center",
-                  }}
+                <span
+                  role="columnheader"
+                  className="flex-1 text-[13px] font-semibold text-white"
                 >
-                  {/* Product column */}
-                  <span
-                    role="cell"
-                    style={{
-                      flex: 1,
-                      fontSize: row.isGroupHeader ? "15px" : "14px",
-                      fontFamily: row.isGroupHeader
-                        ? '"Playfair Display", serif'
-                        : "Inter, sans-serif",
-                      fontStyle: row.isGroupHeader ? "italic" : "normal",
-                      fontWeight: row.isGroupHeader ? 600 : 400,
-                      color: row.isGroupHeader
-                        ? "var(--text-primary)"
-                        : "var(--text-muted)",
-                    }}
-                  >
-                    {row.product}
-                  </span>
+                  Producto
+                </span>
+                <span
+                  role="columnheader"
+                  className="flex-1 text-[13px] font-semibold text-white"
+                >
+                  Tama&ntilde;o
+                </span>
+                <span
+                  role="columnheader"
+                  className="flex-1 text-[13px] font-semibold text-white text-right"
+                >
+                  Precio (MXN)
+                </span>
+              </div>
 
-                  {/* Size column */}
-                  <span
-                    role="cell"
-                    style={{
-                      flex: 1,
-                      fontSize: "14px",
-                      color: "var(--text-secondary)",
-                    }}
+              {/* Data rows */}
+              {PRICING_ROWS.map((row, index) => {
+                const isCreamRow = index % 2 !== 0;
+                return (
+                  <div
+                    key={`${row.product}-${row.size}`}
+                    role="row"
+                    className={[
+                      "flex font-body items-center px-4 md:px-6 py-[14px]",
+                      isCreamRow ? "bg-[var(--bg-cream)]" : "bg-[var(--bg-white)]",
+                      row.isLastRow ? "" : "border-b border-[var(--border)]",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
                   >
-                    {row.size}
-                  </span>
+                    {/* Product column */}
+                    <span
+                      role="cell"
+                      className={[
+                        "flex-1",
+                        row.isGroupHeader
+                          ? "text-[15px] font-display italic font-semibold text-[var(--text-primary)]"
+                          : "text-[14px] font-body font-normal text-[var(--text-muted)]",
+                      ].join(" ")}
+                    >
+                      {row.product}
+                    </span>
 
-                  {/* Price column */}
-                  <span
-                    role="cell"
-                    style={{
-                      flex: 1,
-                      fontSize: "14px",
-                      fontWeight: 600,
-                      color: row.isPriceAccent
-                        ? "var(--primary)"
-                        : "var(--text-primary)",
-                      textAlign: "right",
-                    }}
-                  >
-                    {row.price}
-                  </span>
-                </div>
-              );
-            })}
+                    {/* Size column */}
+                    <span
+                      role="cell"
+                      className="flex-1 text-[14px] text-[var(--text-secondary)]"
+                    >
+                      {row.size}
+                    </span>
+
+                    {/* Price column */}
+                    <span
+                      role="cell"
+                      className={[
+                        "flex-1 text-[14px] font-semibold text-right",
+                        row.isPriceAccent
+                          ? "text-[var(--primary)]"
+                          : "text-[var(--text-primary)]",
+                      ].join(" ")}
+                    >
+                      {row.price}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
 
         {/* ── 3. Disclaimer ─────────────────────────────────────────── */}
-        <section
-          style={{
-            backgroundColor: "var(--bg-white)",
-            padding: "32px 56px",
-          }}
-          className="flex justify-center"
-        >
-          <p
-            className="font-body"
-            style={{
-              fontSize: "13px",
-              color: "var(--text-muted)",
-              textAlign: "center",
-              margin: 0,
-            }}
-          >
+        <section className="bg-[var(--bg-white)] px-6 md:px-14 py-6 md:py-8 flex justify-center">
+          <p className="font-body text-[13px] text-[var(--text-muted)] text-center m-0">
             Precios sujetos a cambio sin previo aviso. M&aacute;s env&iacute;o. M&aacute;s IVA.
           </p>
         </section>
 
         {/* ── 4. CTA Section ────────────────────────────────────────── */}
-        <section
-          style={{
-            backgroundColor: "var(--bg-soft-pink)",
-            padding: "64px 56px",
-          }}
-          className="flex flex-col items-center"
-        >
-          <h2
-            className="font-display"
-            style={{
-              fontSize: "36px",
-              fontStyle: "italic",
-              fontWeight: 700,
-              color: "var(--text-primary)",
-              textAlign: "center",
-              margin: 0,
-            }}
-          >
+        <section className="bg-[var(--bg-soft-pink)] px-6 md:px-14 py-10 md:py-16 flex flex-col items-center gap-6">
+          <h2 className="font-display italic font-bold text-[28px] md:text-[36px] text-[var(--text-primary)] text-center m-0">
             &iquest;Listo para ordenar?
           </h2>
 
-          <p
-            className="font-body"
-            style={{
-              fontSize: "16px",
-              color: "var(--text-secondary)",
-              textAlign: "center",
-              margin: "24px 0 0",
-            }}
-          >
+          <p className="font-body text-[16px] text-[var(--text-secondary)] text-center m-0">
             Cont&aacute;ctanos por WhatsApp y te atendemos de inmediato
           </p>
 
@@ -276,19 +169,7 @@ export default function PreciosPage() {
             href="https://wa.me/528444550296"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center font-body"
-            style={{
-              backgroundColor: "var(--secondary)",
-              color: "#FFFFFF",
-              padding: "16px 40px",
-              borderRadius: "9999px",
-              gap: "10px",
-              fontSize: "15px",
-              fontWeight: 500,
-              textDecoration: "none",
-              marginTop: "24px",
-              transition: "opacity 0.2s ease",
-            }}
+            className="flex items-center gap-[10px] font-body bg-[var(--secondary)] text-white px-10 py-4 md:px-12 md:py-4 rounded-full text-[15px] font-medium no-underline transition-opacity duration-200 ease-in-out hover:opacity-80"
             aria-label="Ordenar por WhatsApp"
           >
             <MessageCircle size={20} aria-hidden="true" />

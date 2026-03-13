@@ -98,8 +98,8 @@ export default function CatalogoPage() {
 
       <main className="flex-1">
         {/* Section 1: Page Title */}
-        <section className="bg-[var(--bg-cream)] flex flex-col items-center justify-center text-center px-[56px] py-[64px] gap-4">
-          <h1 className="font-display italic text-[48px] leading-tight text-[var(--text-primary)]">
+        <section className="bg-[var(--bg-cream)] flex flex-col items-center justify-center text-center px-6 md:px-14 py-10 md:py-16 gap-4">
+          <h1 className="font-display italic text-[32px] md:text-[40px] lg:text-[48px] leading-tight text-[var(--text-primary)]">
             Nuestro Catálogo
           </h1>
           <div className="w-[60px] h-[2px] bg-[var(--primary)]" />
@@ -109,28 +109,25 @@ export default function CatalogoPage() {
         </section>
 
         {/* Section 2: Categories Body */}
-        <section className="bg-[var(--bg-white)] px-[56px] py-[48px] flex flex-col gap-[56px]">
+        <section className="bg-[var(--bg-white)] px-4 md:px-10 lg:px-14 py-8 md:py-12 flex flex-col gap-[56px]">
           {CATEGORIES.map((category) => (
             <div key={category.title} className="flex flex-col gap-2">
               {/* Category header */}
               <div className="flex flex-col gap-2">
-                <h2 className="font-display italic text-[28px] leading-snug text-[var(--text-primary)]">
+                <h2 className="font-display italic text-[22px] md:text-[28px] leading-snug text-[var(--text-primary)]">
                   {category.title}
                 </h2>
-                <p
-                  className="font-body text-[15px] text-[var(--text-secondary)] max-w-[700px]"
-                  style={{ lineHeight: 1.6 }}
-                >
+                <p className="font-body text-[15px] text-[var(--text-secondary)] max-w-[700px] leading-relaxed">
                   {category.description}
                 </p>
               </div>
 
               {/* Image grid */}
-              <div className="grid grid-cols-3 gap-6 mt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
                 {category.images.map((photoId, index) => (
                   <div
                     key={photoId}
-                    className="h-[240px] overflow-hidden rounded-[var(--radius-lg)]"
+                    className="h-[200px] md:h-[240px] overflow-hidden rounded-[var(--radius-lg)]"
                   >
                     <img
                       src={`https://images.unsplash.com/${photoId}?w=1080`}
@@ -145,8 +142,8 @@ export default function CatalogoPage() {
         </section>
 
         {/* Section 3: CTA */}
-        <section className="bg-[var(--bg-soft-pink)] px-[56px] py-[64px] flex flex-col items-center justify-center gap-6">
-          <h2 className="font-display italic text-[36px] leading-tight text-[var(--text-primary)] text-center">
+        <section className="bg-[var(--bg-soft-pink)] px-6 md:px-14 py-10 md:py-16 flex flex-col items-center justify-center gap-6">
+          <h2 className="font-display italic text-[28px] md:text-[36px] leading-tight text-[var(--text-primary)] text-center">
             ¿Te gustó algo?
           </h2>
           <p className="font-body text-[16px] text-[var(--text-secondary)] text-center">
@@ -156,7 +153,7 @@ export default function CatalogoPage() {
             href="https://wa.me/528444550296"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-[var(--secondary)] text-white font-body text-[15px] font-medium px-[40px] py-[16px] rounded-full transition-opacity hover:opacity-85"
+            className="flex items-center gap-2 bg-[var(--secondary)] text-white font-body text-[15px] font-medium px-8 py-3 md:px-10 md:py-4 rounded-full transition-opacity hover:opacity-85"
           >
             <MessageCircle size={18} aria-hidden="true" />
             Ordenar por WhatsApp

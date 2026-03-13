@@ -25,14 +25,14 @@ const LOCATION_ITEMS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--bg-dark)] px-14 py-12">
-      <div className="flex justify-between gap-10 mb-10">
+    <footer className="bg-[var(--bg-dark)] px-6 md:px-10 xl:px-14 py-10 md:py-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-10">
         {/* Brand */}
-        <div className="w-[300px] shrink-0">
+        <div className="w-full sm:col-span-2 lg:col-span-1">
           <span className="block font-display text-[24px] italic font-semibold text-white mb-3">
             Florería Kattya
           </span>
-          <p className="font-body text-[13px] text-[var(--text-muted)] leading-relaxed max-w-[280px]">
+          <p className="font-body text-[13px] text-[var(--text-muted)] leading-relaxed max-w-full sm:max-w-[280px]">
             Arte floral desde 1973. Cada arreglo cuenta una historia de amor,
             celebración y recuerdo.
           </p>

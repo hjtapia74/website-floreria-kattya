@@ -104,71 +104,34 @@ export default function ContactoPage() {
     window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
   }
 
-  const inputStyle: React.CSSProperties = {
-    height: "44px",
-    borderRadius: "8px",
-    backgroundColor: "var(--bg-white)",
-    border: "1px solid var(--border)",
-    padding: "0 16px",
-    fontSize: "14px",
-    fontFamily: "Inter, sans-serif",
-    color: "var(--text-primary)",
-    outline: "none",
-    width: "100%",
-    boxSizing: "border-box",
-  };
-
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <div className="min-h-screen flex flex-col">
       <Header activePage="/contacto" />
 
-      <main style={{ flex: 1 }}>
+      <main className="flex-1">
 
         {/* ── 1. Contact Hero ──────────────────────────────────────────── */}
         <section
-          className="flex flex-col items-center justify-center"
-          style={{
-            backgroundColor: "var(--bg-cream)",
-            height: "280px",
-            padding: "80px 120px",
-            gap: "16px",
-          }}
+          className="flex flex-col items-center justify-center gap-4 min-h-[200px] md:min-h-[280px] px-6 md:px-14 lg:px-[80px] xl:px-[120px] py-10 md:py-20"
+          style={{ backgroundColor: "var(--bg-cream)" }}
         >
           <span
-            className="font-body"
-            style={{
-              fontSize: "13px",
-              fontWeight: 600,
-              color: "var(--primary)",
-              letterSpacing: "2px",
-            }}
+            className="font-body text-[13px] font-semibold tracking-[2px]"
+            style={{ color: "var(--primary)" }}
           >
             ESTAMOS PARA TI
           </span>
 
           <h1
-            className="font-display"
-            style={{
-              fontSize: "52px",
-              fontStyle: "italic",
-              fontWeight: 700,
-              color: "var(--text-primary)",
-              margin: 0,
-            }}
+            className="font-display text-[32px] md:text-[42px] lg:text-[52px] italic font-bold m-0"
+            style={{ color: "var(--text-primary)" }}
           >
             Cont&aacute;ctanos
           </h1>
 
           <p
-            className="font-body"
-            style={{
-              fontSize: "18px",
-              color: "var(--text-secondary)",
-              textAlign: "center",
-              maxWidth: "600px",
-              lineHeight: 1.7,
-              margin: 0,
-            }}
+            className="font-body text-[18px] text-center leading-[1.7] m-0 max-w-[90%] md:max-w-[600px]"
+            style={{ color: "var(--text-secondary)" }}
           >
             Estamos listos para ayudarte a crear el arreglo perfecto. Esc&iacute;benos o vis&iacute;tanos.
           </p>
@@ -176,27 +139,14 @@ export default function ContactoPage() {
 
         {/* ── 2. Contact Main ──────────────────────────────────────────── */}
         <section
-          className="flex flex-row"
-          style={{
-            backgroundColor: "var(--bg-white)",
-            padding: "60px 120px",
-            gap: "48px",
-          }}
+          className="flex flex-col lg:flex-row px-4 md:px-10 lg:px-[80px] xl:px-[120px] py-8 md:py-14 gap-8 md:gap-12"
+          style={{ backgroundColor: "var(--bg-white)" }}
         >
           {/* Left column — Contact info cards */}
-          <div
-            className="flex flex-col"
-            style={{ flex: 1, gap: "24px" }}
-          >
+          <div className="flex flex-col gap-6 w-full lg:flex-1">
             <h2
-              className="font-display"
-              style={{
-                fontSize: "28px",
-                fontStyle: "italic",
-                fontWeight: 700,
-                color: "var(--text-primary)",
-                margin: 0,
-              }}
+              className="font-display text-[28px] italic font-bold m-0"
+              style={{ color: "var(--text-primary)" }}
             >
               Informaci&oacute;n de Contacto
             </h2>
@@ -204,46 +154,28 @@ export default function ContactoPage() {
             {CONTACT_CARDS.map((card) => (
               <div
                 key={card.label}
-                className="flex flex-row items-center"
-                style={{
-                  borderRadius: "12px",
-                  padding: "24px",
-                  gap: "16px",
-                  backgroundColor: card.cardBg,
-                }}
+                className="flex flex-row items-center rounded-xl p-6 gap-4"
+                style={{ backgroundColor: card.cardBg }}
               >
                 {/* Icon container */}
                 <div
-                  className="flex items-center justify-center"
-                  style={{
-                    width: "48px",
-                    height: "48px",
-                    borderRadius: "9999px",
-                    backgroundColor: card.iconBg,
-                    flexShrink: 0,
-                  }}
+                  className="flex items-center justify-center w-12 h-12 rounded-full shrink-0"
+                  style={{ backgroundColor: card.iconBg }}
                 >
                   {card.icon}
                 </div>
 
                 {/* Text */}
-                <div className="flex flex-col" style={{ gap: "4px" }}>
+                <div className="flex flex-col gap-1">
                   <span
-                    className="font-body"
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: 600,
-                      color: "var(--text-primary)",
-                    }}
+                    className="font-body text-[14px] font-semibold"
+                    style={{ color: "var(--text-primary)" }}
                   >
                     {card.label}
                   </span>
                   <span
-                    className="font-body"
-                    style={{
-                      fontSize: "14px",
-                      color: "var(--text-secondary)",
-                    }}
+                    className="font-body text-[14px]"
+                    style={{ color: "var(--text-secondary)" }}
                   >
                     {card.value}
                   </span>
@@ -253,57 +185,36 @@ export default function ContactoPage() {
           </div>
 
           {/* Right column — Contact form */}
-          <div style={{ flex: 1 }}>
+          <div className="w-full lg:flex-1">
             <div
-              className="flex flex-col"
-              style={{
-                backgroundColor: "var(--bg-cream)",
-                borderRadius: "16px",
-                padding: "40px",
-                gap: "20px",
-              }}
+              className="flex flex-col rounded-2xl p-6 md:p-10 gap-5"
+              style={{ backgroundColor: "var(--bg-cream)" }}
             >
               <h2
-                className="font-display"
-                style={{
-                  fontSize: "28px",
-                  fontStyle: "italic",
-                  fontWeight: 700,
-                  color: "var(--text-primary)",
-                  margin: 0,
-                }}
+                className="font-display text-[28px] italic font-bold m-0"
+                style={{ color: "var(--text-primary)" }}
               >
                 Env&iacute;anos un mensaje
               </h2>
 
               <p
-                className="font-body"
-                style={{
-                  fontSize: "14px",
-                  color: "var(--text-secondary)",
-                  lineHeight: 1.5,
-                  margin: 0,
-                }}
+                className="font-body text-[14px] leading-[1.5] m-0"
+                style={{ color: "var(--text-secondary)" }}
               >
                 Completa el formulario y te responderemos a la brevedad.
               </p>
 
               <form
                 onSubmit={handleSubmit}
-                className="flex flex-col"
-                style={{ gap: "20px" }}
+                className="flex flex-col gap-5"
                 noValidate
               >
                 {/* Nombre */}
-                <div className="flex flex-col" style={{ gap: "6px" }}>
+                <div className="flex flex-col gap-1.5">
                   <label
                     htmlFor="nombre"
-                    className="font-body"
-                    style={{
-                      fontSize: "13px",
-                      fontWeight: 500,
-                      color: "var(--text-primary)",
-                    }}
+                    className="font-body text-[13px] font-medium"
+                    style={{ color: "var(--text-primary)" }}
                   >
                     Nombre completo
                   </label>
@@ -314,25 +225,22 @@ export default function ContactoPage() {
                     value={form.nombre}
                     onChange={handleChange}
                     placeholder="Tu nombre"
+                    className="contact-input h-11 rounded-lg px-4 text-[14px] font-body w-full box-border outline-none border"
                     style={{
-                      ...inputStyle,
-                      // placeholder color handled via CSS below
+                      backgroundColor: "var(--bg-white)",
+                      borderColor: "var(--border)",
+                      color: "var(--text-primary)",
                     }}
-                    className="contact-input"
                     required
                   />
                 </div>
 
                 {/* Telefono */}
-                <div className="flex flex-col" style={{ gap: "6px" }}>
+                <div className="flex flex-col gap-1.5">
                   <label
                     htmlFor="telefono"
-                    className="font-body"
-                    style={{
-                      fontSize: "13px",
-                      fontWeight: 500,
-                      color: "var(--text-primary)",
-                    }}
+                    className="font-body text-[13px] font-medium"
+                    style={{ color: "var(--text-primary)" }}
                   >
                     Tel&eacute;fono
                   </label>
@@ -343,58 +251,53 @@ export default function ContactoPage() {
                     value={form.telefono}
                     onChange={handleChange}
                     placeholder="Tu número de teléfono"
-                    style={inputStyle}
-                    className="contact-input"
+                    className="contact-input h-11 rounded-lg px-4 text-[14px] font-body w-full box-border outline-none border"
+                    style={{
+                      backgroundColor: "var(--bg-white)",
+                      borderColor: "var(--border)",
+                      color: "var(--text-primary)",
+                    }}
                   />
                 </div>
 
                 {/* Ocasion */}
-                <div className="flex flex-col" style={{ gap: "6px" }}>
+                <div className="flex flex-col gap-1.5">
                   <label
                     htmlFor="ocasion"
-                    className="font-body"
-                    style={{
-                      fontSize: "13px",
-                      fontWeight: 500,
-                      color: "var(--text-primary)",
-                    }}
+                    className="font-body text-[13px] font-medium"
+                    style={{ color: "var(--text-primary)" }}
                   >
                     Tipo de ocasi&oacute;n
                   </label>
-                  <div style={{ position: "relative" }}>
+                  <div className="relative">
                     <select
                       id="ocasion"
                       name="ocasion"
                       value={form.ocasion}
                       onChange={handleChange}
+                      className="contact-input h-11 rounded-lg px-4 pr-10 text-[14px] font-body w-full box-border outline-none border appearance-none cursor-pointer"
                       style={{
-                        ...inputStyle,
-                        appearance: "none",
-                        WebkitAppearance: "none",
-                        paddingRight: "40px",
-                        cursor: "pointer",
+                        backgroundColor: "var(--bg-white)",
+                        borderColor: "var(--border)",
                         color: form.ocasion ? "var(--text-primary)" : "var(--text-muted)",
                       }}
-                      className="contact-input"
                     >
                       <option value="" disabled>
                         Selecciona una ocasi&oacute;n
                       </option>
                       {OCASIONES.map((o) => (
-                        <option key={o} value={o} style={{ color: "var(--text-primary)" }}>
+                        <option
+                          key={o}
+                          value={o}
+                          style={{ color: "var(--text-primary)" }}
+                        >
                           {o}
                         </option>
                       ))}
                     </select>
                     <div
-                      style={{
-                        position: "absolute",
-                        right: "12px",
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                        pointerEvents: "none",
-                        color: "var(--text-muted)",
-                      }}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+                      style={{ color: "var(--text-muted)" }}
                     >
                       <ChevronDown size={16} aria-hidden="true" />
                     </div>
@@ -402,15 +305,11 @@ export default function ContactoPage() {
                 </div>
 
                 {/* Mensaje */}
-                <div className="flex flex-col" style={{ gap: "6px" }}>
+                <div className="flex flex-col gap-1.5">
                   <label
                     htmlFor="mensaje"
-                    className="font-body"
-                    style={{
-                      fontSize: "13px",
-                      fontWeight: 500,
-                      color: "var(--text-primary)",
-                    }}
+                    className="font-body text-[13px] font-medium"
+                    style={{ color: "var(--text-primary)" }}
                   >
                     Mensaje
                   </label>
@@ -421,47 +320,20 @@ export default function ContactoPage() {
                     onChange={handleChange}
                     placeholder="Cuéntanos qué necesitas..."
                     rows={4}
+                    className="contact-input rounded-lg p-4 text-[14px] font-body w-full box-border outline-none border resize-y min-h-[100px]"
                     style={{
-                      height: "100px",
-                      borderRadius: "8px",
                       backgroundColor: "var(--bg-white)",
-                      border: "1px solid var(--border)",
-                      padding: "16px",
-                      fontSize: "14px",
-                      fontFamily: "Inter, sans-serif",
+                      borderColor: "var(--border)",
                       color: "var(--text-primary)",
-                      outline: "none",
-                      width: "100%",
-                      boxSizing: "border-box",
-                      resize: "vertical",
                     }}
-                    className="contact-input"
                   />
                 </div>
 
                 {/* Submit */}
                 <button
                   type="submit"
-                  className="flex items-center justify-center font-body"
-                  style={{
-                    width: "100%",
-                    height: "48px",
-                    backgroundColor: "var(--primary)",
-                    color: "#FFFFFF",
-                    borderRadius: "8px",
-                    border: "none",
-                    fontSize: "15px",
-                    fontWeight: 500,
-                    cursor: "pointer",
-                    gap: "8px",
-                    transition: "opacity 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.opacity = "0.88";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.opacity = "1";
-                  }}
+                  className="contact-submit flex items-center justify-center gap-2 font-body w-full h-12 rounded-lg border-none text-[15px] font-medium cursor-pointer text-white transition-opacity duration-200"
+                  style={{ backgroundColor: "var(--primary)" }}
                 >
                   <Send size={18} aria-hidden="true" />
                   Enviar Mensaje
@@ -473,37 +345,22 @@ export default function ContactoPage() {
 
         {/* ── 3. Map Section ───────────────────────────────────────────── */}
         <section
-          className="flex flex-col items-center"
-          style={{
-            backgroundColor: "var(--bg-white)",
-            padding: "0 120px 60px 120px",
-            gap: "24px",
-          }}
+          className="flex flex-col items-center gap-6 px-4 md:px-10 lg:px-[80px] xl:px-[120px] pb-10 md:pb-14"
+          style={{ backgroundColor: "var(--bg-white)" }}
         >
           <h2
-            className="font-display"
-            style={{
-              fontSize: "28px",
-              fontStyle: "italic",
-              fontWeight: 700,
-              color: "var(--text-primary)",
-              textAlign: "center",
-              margin: 0,
-            }}
+            className="font-display text-[28px] italic font-bold text-center m-0"
+            style={{ color: "var(--text-primary)" }}
           >
             Encu&eacute;ntranos
           </h2>
 
           {/* Map placeholder */}
           <div
-            className="flex flex-col items-center justify-center"
+            className="flex flex-col items-center justify-center gap-3 rounded-2xl h-[350px] w-full border"
             style={{
-              borderRadius: "16px",
-              height: "350px",
-              width: "100%",
               backgroundColor: "#E5E5E5",
-              border: "1px solid var(--border)",
-              gap: "12px",
+              borderColor: "var(--border)",
             }}
           >
             <MapPin
@@ -512,14 +369,8 @@ export default function ContactoPage() {
               style={{ color: "var(--text-muted)" }}
             />
             <p
-              className="font-body"
-              style={{
-                fontSize: "14px",
-                color: "var(--text-secondary)",
-                textAlign: "center",
-                margin: 0,
-                maxWidth: "360px",
-              }}
+              className="font-body text-[14px] text-center m-0 max-w-[360px]"
+              style={{ color: "var(--text-secondary)" }}
             >
               Obreg&oacute;n Sur 165-1, Zona Centro, Saltillo, Coahuila, M&eacute;xico
             </p>
@@ -537,6 +388,9 @@ export default function ContactoPage() {
         .contact-input:focus {
           border-color: var(--primary);
           box-shadow: 0 0 0 3px var(--primary-light);
+        }
+        .contact-submit:hover {
+          opacity: 0.88;
         }
       `}</style>
     </div>

@@ -69,24 +69,15 @@ export default function ServiciosPage() {
 
       <main className="flex-1">
         {/* ── 1. Services Hero ── */}
-        <section
-          className="flex items-center justify-center bg-[var(--bg-cream)]"
-          style={{ height: "300px", padding: "80px 120px" }}
-        >
+        <section className="flex items-center justify-center bg-[var(--bg-cream)] min-h-[200px] md:min-h-[300px] px-6 md:px-14 lg:px-[80px] xl:px-[120px] py-12 md:py-20">
           <div className="flex flex-col items-center gap-4">
-            <span
-              className="font-body font-semibold text-[var(--primary)]"
-              style={{ fontSize: "13px", letterSpacing: "2px" }}
-            >
+            <span className="font-body font-semibold text-[13px] tracking-[2px] text-[var(--primary)]">
               LO QUE HACEMOS
             </span>
-            <h1 className="font-display italic text-[52px] text-[var(--text-primary)]">
+            <h1 className="font-display italic text-[32px] md:text-[42px] lg:text-[52px] text-[var(--text-primary)]">
               Nuestros Servicios
             </h1>
-            <p
-              className="font-body text-[18px] text-[var(--text-secondary)] text-center max-w-[650px]"
-              style={{ lineHeight: 1.7 }}
-            >
+            <p className="font-body text-[18px] leading-[1.7] text-[var(--text-secondary)] text-center max-w-[90%] md:max-w-[650px]">
               Desde un ramo especial hasta la decoración completa de tu evento,
               estamos para crear algo único para ti.
             </p>
@@ -94,21 +85,17 @@ export default function ServiciosPage() {
         </section>
 
         {/* ── 2. Services Grid ── */}
-        <section
-          className="bg-[var(--bg-white)] flex flex-col gap-6"
-          style={{ padding: "60px 120px" }}
-        >
-          <div className="grid grid-cols-3 gap-6">
+        <section className="bg-[var(--bg-white)] flex flex-col gap-6 px-4 md:px-10 lg:px-[80px] xl:px-[120px] py-8 md:py-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {SERVICES.map((service) => {
               const Icon = service.icon;
               return (
                 <div
                   key={service.title}
-                  className="rounded-[16px] overflow-hidden flex flex-col bg-[var(--bg-white)]"
-                  style={{ border: "1px solid var(--border)" }}
+                  className="rounded-[16px] overflow-hidden flex flex-col bg-[var(--bg-white)] border border-[var(--border)]"
                 >
                   {/* Card image */}
-                  <div className="h-[220px] overflow-hidden rounded-t-[16px]">
+                  <div className="h-[180px] md:h-[220px] overflow-hidden rounded-t-[16px]">
                     <img
                       src={service.image}
                       alt={service.title}
@@ -120,19 +107,13 @@ export default function ServiciosPage() {
                   <div className="flex flex-col gap-3 p-6">
                     <Icon
                       size={28}
-                      style={{ color: "var(--primary)" }}
+                      className="text-[var(--primary)]"
                       aria-hidden="true"
                     />
-                    <h2
-                      className="font-display italic text-[var(--text-primary)]"
-                      style={{ fontSize: "22px" }}
-                    >
+                    <h2 className="font-display italic text-[22px] text-[var(--text-primary)]">
                       {service.title}
                     </h2>
-                    <p
-                      className="font-body text-[14px] text-[var(--text-secondary)]"
-                      style={{ lineHeight: 1.6 }}
-                    >
+                    <p className="font-body text-[14px] leading-[1.6] text-[var(--text-secondary)]">
                       {service.description}
                     </p>
                   </div>
@@ -143,15 +124,9 @@ export default function ServiciosPage() {
         </section>
 
         {/* ── 3. CTA Section ── */}
-        <section
-          className="bg-[var(--bg-soft-pink)] flex items-center justify-center"
-          style={{ height: "300px", padding: "80px 120px" }}
-        >
+        <section className="bg-[var(--bg-soft-pink)] flex items-center justify-center min-h-[200px] md:min-h-[300px] px-6 md:px-14 lg:px-[80px] xl:px-[120px] py-12 md:py-20">
           <div className="flex flex-col items-center gap-6">
-            <h2
-              className="font-display italic text-[var(--text-primary)]"
-              style={{ fontSize: "36px" }}
-            >
+            <h2 className="font-display italic text-[28px] md:text-[36px] text-[var(--text-primary)]">
               ¿Tienes un evento especial?
             </h2>
             <p className="font-body text-[18px] text-[var(--text-secondary)]">
@@ -161,8 +136,7 @@ export default function ServiciosPage() {
               href="https://wa.me/528444550296"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-[10px] bg-[var(--primary)] text-white font-body font-medium rounded-full"
-              style={{ padding: "16px 40px" }}
+              className="flex items-center gap-[10px] bg-[var(--primary)] text-white font-body font-medium rounded-full px-8 py-3 md:px-10 md:py-4"
             >
               <MessageCircle size={18} aria-hidden="true" />
               Cotízanos por WhatsApp
