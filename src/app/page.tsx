@@ -5,24 +5,19 @@ import Footer from "@/components/Footer";
 
 const CATEGORIES = [
   {
-    title: "Ramos",
-    description: "Ramos de rosas frescas en presentaciones de 12, 24 y 50 piezas",
-    image: "https://images.unsplash.com/photo-1642564452659-d9d37b9439eb?w=1080",
+    title: "Arreglos de ocasión",
+    description: "Somos especialistas en diseño floral de ocasión, creamos arreglos personalizados que capturan la esencia de cada momento. Celebramos cumpleaños, aniversarios, fechas importantes, días festivos. Expresando amor, agradecimiento, disculpa, compañerismo, liderazgo.",
+    image: "/images/ocasion.jpeg",
   },
   {
-    title: "Arreglos en Florero",
-    description: "Elegantes arreglos en florero con rosas y flores mixtas",
-    image: "https://images.unsplash.com/photo-1651571646480-04ed8876925a?w=1080",
+    title: "Arreglos funerarios",
+    description: "Acompañamos en momentos difíciles, mostrando reconocimiento, amor, condolencia, apoyo. Garantizando la frescura de nuestras flores y entrega segura a tiempo.",
+    image: "/images/funerarios.jpeg",
   },
   {
-    title: "Canastas",
-    description: "Canastas florales de 12 a 100 flores para toda ocasión",
-    image: "https://images.unsplash.com/photo-1749305577446-6d9289e9587f?w=1080",
-  },
-  {
-    title: "Arreglos para Eventos",
-    description: "Decoración floral para bodas, quinceañeras y eventos especiales",
-    image: "https://images.unsplash.com/photo-1758810741375-0fea503c9cbd?w=1080",
+    title: "Arreglos para eventos",
+    description: "<b>Eventos sociales:</b> Transformamos las ocasiones especiales en recuerdos inolvidables, creando junto a ti, los arreglos idóneos para tu cena romántica, pedida de mano, despedida de soltera, boda, baby shower, bautizo, primera comunión.<br/><b>Eventos empresariales:</b> Damos el toque elegante y distinguido para tu reunión de negocios, sesión corporativa y directivas, capacitaciones, posadas y eventos.",
+    image: "/images/eventos.jpeg",
   },
 ];
 
@@ -63,20 +58,20 @@ export default function HomePage() {
         {/* ── 1. Hero Section ── */}
         <section className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden flex items-center justify-center">
           <img
-            src="https://images.unsplash.com/photo-1759031755373-7567f0f30b26?w=1080"
+            src="/images/hero.jpeg"
             alt="Arreglos florales Florería Kattya"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black/55" />
+          {/* Light overlay */}
+          <div className="absolute inset-0 bg-black/25" />
 
           {/* Centered content */}
           <div className="relative z-10 flex flex-col items-center gap-6">
             <h1 className="font-display italic text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] text-white text-center max-w-[90%] md:max-w-[700px] lg:max-w-[900px] leading-tight">
-              No vendemos flores, sino arte
+              No vendemos flores, solo obras de arte
             </h1>
             <p className="font-body text-[16px] md:text-[20px] text-white/80 text-center max-w-[90%] md:max-w-[700px]">
-              Desde 1973 creando arreglos florales únicos en Saltillo
+              Desde 1973, creando historias
             </p>
             <Link
               href="/catalogo"
@@ -94,9 +89,8 @@ export default function HomePage() {
           </h2>
           <div className="w-[60px] h-[2px] bg-[var(--primary)]" />
           <p className="font-body text-[16px] text-[var(--text-secondary)] text-center max-w-[700px] leading-[1.6]">
-            Por más de 53 años, Florería Kattya ha sido parte de los momentos más importantes de
-            las familias saltillenses. Cada arreglo que creamos lleva consigo la dedicación
-            artesanal que nos ha distinguido desde nuestros inicios en el corazón de Saltillo.
+            Por más de 53 años, Florería Kattya ha sido parte de la historia de las familias
+            saltillenses. La tradición, la calidad, el servicio y el buen gusto, nos ha distinguido.
           </p>
         </section>
 
@@ -105,7 +99,7 @@ export default function HomePage() {
           <h2 className="font-display italic text-[36px] text-[var(--text-primary)] text-center">
             Nuestras Especialidades
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full">
             {CATEGORIES.map((card) => (
               <div key={card.title} className="rounded-sm overflow-hidden">
                 <div className="h-[200px] md:h-[240px] lg:h-[280px] overflow-hidden rounded-t-sm">
@@ -119,9 +113,9 @@ export default function HomePage() {
                   <h3 className="font-display italic text-[20px] text-[var(--text-primary)]">
                     {card.title}
                   </h3>
-                  <p className="font-body text-[13px] text-[var(--text-secondary)] leading-[1.5]">
-                    {card.description}
-                  </p>
+                  <p className="font-body text-[13px] text-[var(--text-secondary)] leading-[1.5] whitespace-pre-line"
+                    dangerouslySetInnerHTML={{ __html: card.description }}
+                  />
                 </div>
               </div>
             ))}
@@ -144,10 +138,10 @@ export default function HomePage() {
                   <div className="w-16 h-16 rounded-full bg-[var(--primary)] flex items-center justify-center shrink-0">
                     <Icon size={28} color="white" aria-hidden="true" />
                   </div>
-                  <p className="font-body text-[14px] font-semibold text-center text-[var(--text-primary)]">
+                  <p className="font-body text-[16px] font-semibold text-center text-[var(--text-primary)]">
                     {step.label}
                   </p>
-                  <p className="font-body text-[12px] text-center text-[var(--text-secondary)]">
+                  <p className="font-body text-[14px] text-center text-[var(--text-secondary)]">
                     {step.description}
                   </p>
                 </div>

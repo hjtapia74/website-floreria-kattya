@@ -26,11 +26,8 @@ export default function Header({ activePage }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 bg-[var(--bg-white)] border-b border-[var(--border)] backdrop-blur-md">
       <div className="flex items-center justify-between px-4 md:px-8 xl:px-14 py-5">
-        <Link
-          href="/"
-          className="font-display text-[24px] italic font-semibold text-[var(--primary)] no-underline"
-        >
-          Florería Kattya
+        <Link href="/" className="no-underline">
+          <img src="/images/logo.png" alt="Florería Kattya" className="h-10 md:h-12 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8 font-body" aria-label="Navegación principal">
