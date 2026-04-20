@@ -12,51 +12,51 @@ const CATEGORIES: Category[] = [
   {
     title: "Ramos de Rosas",
     description:
-      "Bouquets de 12, 24 y 50 rosas en rojo, rosa, blanco y amarillo. Envueltos con elegancia para cualquier ocasión.",
+      "Ramo de rosas solas o acompañadas de follaje de flor, presentado en papel de temporada con moño de organza. Los colores de la rosa, los follajes de acompañamiento, pueden variar.",
     images: [
-      "photo-1709373292533-1a208c18cced",
-      "photo-1708401127420-cc4c328213dc",
-      "photo-1759675905571-9c01cac8cec4",
+      "/images/rosas1.jpeg",
+      "/images/rosas2.jpeg",
+      "/images/rosas3.jpeg",
     ],
   },
   {
     title: "Canastas de Flores",
     description:
-      "Canastas de 12 a 100 flores, rosas o mixtas. Ideales para regalos que dejan huella.",
+      "Canasta de rosas solas o de flores combinadas, acompañadas de follaje de flor y follaje verde fino, presentado en diferentes tipos y estilos de canastas. Los colores, el diseño pueden variar de acuerdo a temporalidad y disponibilidad de canastas.",
     images: [
-      "photo-1593465078652-a34d250129d4",
-      "photo-1569431372699-6ee294ad99c8",
-      "photo-1595657333960-3a7d04bdab2a",
+      "/images/canasta1.jpeg",
+      "/images/canasta2.jpeg",
+      "/images/canasta3.jpeg",
     ],
   },
   {
     title: "Arreglos en Florero",
     description:
-      "Arreglos de 12 a más de 100 flores en elegantes floreros de cristal. Perfectos para decorar cualquier espacio.",
+      "Floreros de cristal de diferentes formas y estilos, cilindros de cristal transparente o blancos. Ideales para embellecer cualquier espacio.",
     images: [
-      "photo-1704478394484-01095c915829",
-      "photo-1759771181560-16e552668ba4",
-      "photo-1739446303318-7a88655bea53",
+      "/images/florero1.jpeg",
+      "/images/florero2.jpeg",
+      "/images/florero3.jpeg",
     ],
   },
   {
     title: "Arreglos Verticales",
     description:
-      "Arreglos verticales de flores mixtas con diseño escultural. Una pieza de arte para espacios especiales.",
+      "Arreglos Verticales diseñados con el toque de prestigio y distinción que los hace espectaculares.",
     images: [
-      "photo-1686426013960-9c372152f93e",
-      "photo-1745242919196-a7e95147b91d",
-      "photo-1770988042803-904bb99911ff",
+      "/images/vertical1.jpeg",
+      "/images/vertical2.jpeg",
+      "/images/vertical3.jpeg",
     ],
   },
   {
     title: "Cajas de Madera",
     description:
-      "Arreglos en cajas de madera chica, mediana y grande. Un regalo rústico y elegante con flores frescas.",
+      "Arreglo en cajas de madera: Caja de madera tipo alhajero, chico, mediano o grande, un detalle para toda la vida. Nota: Las cajas de madera tienen diferentes acabados elaborados con la tecnica de Copage, así que los modelos disponibles, varian constantemente. Por favor contacta con nosotros por whatsapp para darte más detalle.",
     images: [
-      "photo-1620753739364-0fea76ddf86c",
-      "photo-1703769192628-aecc65bc3964",
-      "photo-1751997579166-3d9e52e7b11b",
+      "/images/caja1.jpeg",
+      "/images/caja2.jpeg",
+      "/images/caja3.jpeg",
     ],
   },
   {
@@ -64,9 +64,9 @@ const CATEGORIES: Category[] = [
     description:
       "Arreglos de fruta fresca hechos sobre pedido. Combinaciones personalizadas para cualquier celebración.",
     images: [
-      "photo-1603481840330-daf9a25d2c10",
-      "photo-1659527027414-4c5d98034104",
-      "photo-1715817608067-8ee98fa5a16e",
+      "/images/fruta1.jpeg",
+      "/images/fruta2.jpeg",
+      "/images/fruta3.jpeg",
     ],
   },
   {
@@ -74,19 +74,28 @@ const CATEGORIES: Category[] = [
     description:
       "Coronas de flores blancas en tamaño mediano y grande. Un tributo digno y respetuoso para despedir a quienes amamos.",
     images: [
-      "photo-1768102435163-e989a89fcd24",
-      "photo-1581957829801-433af0687345",
-      "photo-1769372742183-9495f9d1b303",
+      "/images/corona1.jpeg",
+      "/images/corona2.jpeg",
+      "/images/corona3.jpeg",
     ],
   },
   {
     title: "Ofrendas",
     description:
-      "Arreglos de condolencias en flores blancas. Expresiones de paz y cariño en momentos difíciles.",
+      "Arreglos de condolencias en flores blancas. Expresiones de paz y cariño en momentos difíciles. Arreglos horizontales, verticales, redondos y en florero",
     images: [
-      "photo-1640223996225-314669fef27f",
-      "photo-1768878288799-3b0d10d4a6ac",
-      "photo-1733247137798-7cc63841ef3c",
+      "/images/ofrenda1.jpeg",
+      "/images/ofrenda2.jpeg",
+      "/images/ofrenda3.jpeg",
+    ],
+  },
+  {
+    title: "Arreglo de Plantas",
+    description: "Un detalle para toda la vida",
+    images: [
+      "/images/planta1.jpeg",
+      "/images/planta2.jpeg",
+      "/images/planta3.jpeg",
     ],
   },
 ];
@@ -104,7 +113,7 @@ export default function CatalogoPage() {
           </h1>
           <div className="w-[60px] h-[2px] bg-[var(--primary)]" />
           <p className="font-body text-[18px] text-[var(--text-secondary)]">
-            Cada arreglo es una obra de arte hecha a tu medida
+            ¡Cada arreglo tiene historia, forma, estilo y dedicación! Conócelos!!!
           </p>
         </section>
 
@@ -130,7 +139,7 @@ export default function CatalogoPage() {
                     className="h-[200px] md:h-[240px] overflow-hidden rounded-[var(--radius-lg)]"
                   >
                     <img
-                      src={`https://images.unsplash.com/${photoId}?w=1080`}
+                      src={photoId.startsWith("/") ? photoId : `https://images.unsplash.com/${photoId}?w=1080`}
                       alt={`${category.title} ${index + 1}`}
                       className="object-cover w-full h-full"
                     />
